@@ -1,5 +1,4 @@
 export interface NewsData {
-  isOpenNotificationsModal: boolean;
   posts: NewsPostsListData[] | [];
 }
 

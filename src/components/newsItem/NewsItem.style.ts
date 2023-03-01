@@ -28,7 +28,6 @@ export const NewsItemHeader = styled(Grid)`
   }
 
   button {
-    border: none !important;
     position: absolute;
     top: 0;
     right: 0;

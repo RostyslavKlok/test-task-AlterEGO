@@ -23,7 +23,6 @@ export const NavItem = styled(Grid)`
   &:hover {
     transition: all 0.3s;
     background: ${(props) => props.theme.colors.primaryHovered} !important;
-    box-shadow: 0px 0px 5px 5px ${(props) => props.theme.colors.primaryHovered};
   }
 
   & a {

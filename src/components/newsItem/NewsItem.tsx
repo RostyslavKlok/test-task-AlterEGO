@@ -1,5 +1,9 @@
 import React from "react";
-import { ButtonType, ButtonVariantType } from "../../const/button";
+import {
+  ButtonColorType,
+  ButtonType,
+  ButtonVariantType,
+} from "../../const/button";
 import { IconType } from "../../const/icons";
 import { NewsPostsListData } from "../../models/InterfaceNews";
 import { Button } from "../button";
@@ -13,20 +17,21 @@ import {
 
 interface NewsItemProps {
   post: NewsPostsListData;
-  deletePostHandler: (name: string | undefined) => any | undefined;
+  openDeletePostModalHandler: (name: string | undefined) => any | undefined;
 }
 
 export const NewsItem: React.FunctionComponent<NewsItemProps> = (props) => {
-  const { post, deletePostHandler } = props;
+  const { post, openDeletePostModalHandler } = props;
   return (
     <NewsItemWrapper>
       <NewsItemHeader>
         <NewsItemDataItem>{post?.name}</NewsItemDataItem>
         <Button
           title={"Delete"}
+          color={ButtonColorType.text}
           type={ButtonType.button}
-          variant={ButtonVariantType.outlined}
-          onClick={() => deletePostHandler(post?.name)}
+          variant={ButtonVariantType.text}
+          onClick={() => openDeletePostModalHandler(post?.name)}
           startIcon={<CommonIcon type={IconType.deleteIcon} />}
         />
       </NewsItemHeader>

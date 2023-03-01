@@ -1,7 +1,10 @@
 import React from "react";
 import { ButtonType } from "../../const/button";
-import { ButtonVariantInterface } from "../../models/InterfaceButton";
-import { ButtonWrapper } from "./Button.style";
+import {
+  ButtonColorType,
+  ButtonVariantInterface,
+} from "../../models/InterfaceButton";
+import { handlerButtonWrapper } from "../../tools/wrappersHelper";
 
 interface ButtonProps {
   title?: string;
@@ -12,6 +15,9 @@ interface ButtonProps {
   onClick?: () => void;
   startIcon?: any;
   endIcon?: any;
+  fullWidth?: boolean;
+  color: ButtonColorType;
+  className?: string;
 }
 
 export const Button: React.FunctionComponent<ButtonProps> = (props) => {
@@ -24,19 +30,26 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
     onClick,
     startIcon,
     endIcon,
+    fullWidth,
+    color,
+    className,
   } = props;
 
+  const CurrentWrapper = handlerButtonWrapper(color);
+
   return (
-    <ButtonWrapper
+    <CurrentWrapper
       variant={variant}
       type={type}
       disabled={disabled}
       onClick={onClick}
       startIcon={startIcon}
       endIcon={endIcon}
+      fullWidth={fullWidth}
+      className={className}
     >
       {title}
       {children}
-    </ButtonWrapper>
+    </CurrentWrapper>
   );
 };

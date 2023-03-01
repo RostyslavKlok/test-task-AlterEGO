@@ -1,8 +1,9 @@
+import { NotificationsMessageType } from "../../const/common";
+import { IconType } from "../../const/icons";
 import { Store } from "../../models/InterfaceStore";
 
 export const defaultState: Store = {
   news: {
-    isOpenNotificationsModal: false,
     posts: [
       {
         name: "Luke Skywalker",
@@ -25,5 +26,10 @@ export const defaultState: Store = {
         gender: "male",
       },
     ],
+  },
+  notifications: {
+    message: "",
+    messageType: NotificationsMessageType.error,
+    iconType: IconType.deleteIcon,
   },
 };
