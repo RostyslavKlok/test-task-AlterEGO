@@ -1,6 +1,11 @@
 import React from "react";
+import { HomePageInfo } from "../../const/homePage";
+import { HomePageInfoWrapper, HomePageWrapper } from "./Home.style";
 
 export const HomePage: React.FunctionComponent = () => {
-  console.log("Home Page");
-  return <div>213</div>;
+  return (
+    <HomePageWrapper>
+      <HomePageInfoWrapper>{HomePageInfo.text}</HomePageInfoWrapper>
+    </HomePageWrapper>
+  );
 };
