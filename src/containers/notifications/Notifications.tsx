@@ -3,12 +3,12 @@ import { Divider } from "@material-ui/core";
 import { CommonIcon } from "../../components";
 import { NOTIFICATION_CLICK_AWAY } from "../../const/common";
 import { IconType } from "../../const/icons";
-import { clearNotificationAction } from "../../redux/slices/notificationsSlice";
 import { handlerNotificationsAlertWrapper } from "../../tools/wrappersHelper";
 import { SnackbarWrapper } from "./Notifications.style";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectNotificationsData } from "../../redux/selectors";
+import { clearNotificationAction } from "../../redux/slices";
 
 export const Notification: React.FunctionComponent = memo(() => {
   const dispatch = useDispatch();

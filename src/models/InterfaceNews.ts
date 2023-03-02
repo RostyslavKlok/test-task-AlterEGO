@@ -1,5 +1,6 @@
 export interface NewsData {
   posts: NewsPostsListData[] | [];
+  isDisabledLoadButton: boolean;
 }
 
 export interface NewsPostsListData {

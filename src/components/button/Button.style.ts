@@ -33,6 +33,6 @@ export const ButtonOutlinedWrapper = styled(ButtonWrapper)`
 
 export const ButtonTextWrapper = styled(ButtonWrapper)`
   &:hover {
-    background-color: none !important;
+    background-color: inherit !important;
   }
 `;
