@@ -1,6 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
 import { Divider } from "@material-ui/core";
-import { CommonIcon } from "../../components";
 import { NOTIFICATION_CLICK_AWAY } from "../../const/common";
 import { IconType } from "../../const/icons";
 import { handlerNotificationsAlertWrapper } from "../../tools/wrappersHelper";
@@ -9,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectNotificationsData } from "../../redux/selectors";
 import { clearNotificationAction } from "../../redux/slices";
+import { IconsHelper } from "./parts";
 
 export const Notification: React.FunctionComponent = memo(() => {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export const Notification: React.FunctionComponent = memo(() => {
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
     >
       <CurrentAlertWrapper container>
-        <CommonIcon type={notificationsData.iconType as IconType} />
+        <IconsHelper iconType={notificationsData.iconType as IconType} />
         <Divider />
         {message}
       </CurrentAlertWrapper>

@@ -7,7 +7,6 @@ import {
 import { handlerButtonWrapper } from "../../tools/wrappersHelper";
 
 interface ButtonProps {
-  title?: string;
   variant: ButtonVariantInterface;
   type: ButtonType;
   disabled?: boolean;
@@ -22,7 +21,6 @@ interface ButtonProps {
 
 export const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const {
-    title,
     variant,
     type,
     disabled,
@@ -48,7 +46,6 @@ export const Button: React.FunctionComponent<ButtonProps> = (props) => {
       fullWidth={fullWidth}
       className={className}
     >
-      {title}
       {children}
     </CurrentWrapper>
   );

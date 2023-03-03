@@ -1,5 +1,6 @@
 import { Modal, Typography } from "@material-ui/core";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "../../../components";
 import {
   ButtonColorType,
@@ -25,29 +26,33 @@ export const NewsDeleteModal: React.FunctionComponent<NewsDeleteModalProps> = (
     deletePostHandler,
   } = props;
 
+  const { t } = useTranslation();
+
   return (
     <Modal open={isOpenDeleteModal} onClose={handleCloseDeleteModal}>
       <ModalBox>
         <Typography id="modal-title" variant="h6" component="h2">
-          Are you sure you want to delete post with{" "}
+          {t("deleteModalText")}{" "}
           <span style={{ color: "red" }}>{currentDeletedName}</span> ?
         </Typography>
         <ModalButtonsWrapper>
           <Button
-            title={"Cancel"}
             color={ButtonColorType.outlined}
             type={ButtonType.button}
             variant={ButtonVariantType.outlined}
             onClick={handleCloseDeleteModal}
-          />
+          >
+            {t("newsDeleteModalCancelButton")}
+          </Button>
           <Button
             className="delete-news-post-button"
-            title={"Delete"}
             color={ButtonColorType.contained}
             type={ButtonType.button}
             variant={ButtonVariantType.contained}
             onClick={deletePostHandler}
-          />
+          >
+            {t("newsDeleteModalDeleteButton")}
+          </Button>
         </ModalButtonsWrapper>
       </ModalBox>
     </Modal>

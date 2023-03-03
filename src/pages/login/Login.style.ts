@@ -7,6 +7,10 @@ interface InputPasswordTitleProps {
   formikerror?: any;
 }
 
+interface LoginButtonsWrapperProps {
+  isdisabledsigninbutton?: boolean;
+}
+
 interface InputUsernameTitleProps {
   formikerror?: any;
 }
@@ -63,12 +67,23 @@ export const InputPasswordTitle = styled(Typography)<InputPasswordTitleProps>`
   font-weight: ${(props) => props.theme.fontWeight.fw600};
 `;
 
-export const LoginButtonsWrapper = styled(Grid)`
+export const LoginButtonsWrapper = styled(Grid)<LoginButtonsWrapperProps>`
   width: 100%;
   display: flex;
   justify-content: space-between;
 
   button {
     width: 48%;
+  }
+
+  .sign-in-button {
+    background-color: ${(props) =>
+      props.isdisabledsigninbutton
+        ? props.theme.colors.primary
+        : props.theme.colors.secondary} !important;
+    color: ${(props) =>
+      props.isdisabledsigninbutton
+        ? props.theme.colors.black
+        : props.theme.colors.white} !important;
   }
 `;

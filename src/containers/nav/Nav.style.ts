@@ -5,9 +5,28 @@ export const NavWrapper = styled(Grid)`
   width: 100%;
   height: ${(props) => props.theme.componentSizes.navHeight};
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding-right: 120px;
+`;
+
+export const NavItemsWrapper = styled(Grid)`
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const NavButtonsLangWrapper = styled(Grid)`
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+
+  button {
+    margin-left: 10px;
+  }
 `;
 
 export const NavItem = styled(Grid)`

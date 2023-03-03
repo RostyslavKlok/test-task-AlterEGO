@@ -15,5 +15,9 @@ export const defaultState: Store = {
   profile: {
     isAuth: false,
     loginErrorMessage: "",
+    mockUserCredentials: {
+      username: "admin",
+      password: "12345",
+    },
   },
 };

@@ -12,4 +12,5 @@ export interface NewsPostsListData {
   eye_color?: string;
   birth_year?: string;
   gender?: string;
+  id?: string;
 }

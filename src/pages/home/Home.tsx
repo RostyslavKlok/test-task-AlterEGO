@@ -1,11 +1,13 @@
 import React from "react";
-import { HomePageInfo } from "../../const/homePage";
+import { useTranslation } from "react-i18next";
 import { HomePageInfoWrapper, HomePageWrapper } from "./Home.style";
 
 export const HomePage: React.FunctionComponent = () => {
+  const { t } = useTranslation();
+
   return (
     <HomePageWrapper>
-      <HomePageInfoWrapper>{HomePageInfo.text}</HomePageInfoWrapper>
+      <HomePageInfoWrapper>{t("homePageInfo")}</HomePageInfoWrapper>
     </HomePageWrapper>
   );
 };

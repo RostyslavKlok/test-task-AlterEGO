@@ -1,20 +1,22 @@
-import { IconButton, InputAdornment } from "@material-ui/core";
+import { IconButton, InputAdornment, SvgIcon } from "@material-ui/core";
 import { useFormik } from "formik";
 import React, { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { Button, CommonIcon, CommonInput } from "../../components";
+import { Button, CommonInput } from "../../components";
 import {
   ButtonColorType,
   ButtonType,
   ButtonVariantType,
 } from "../../const/button";
-import { IconType } from "../../const/icons";
 import {
   InputType,
   INPUT_ADORNMENT_POSITION_END,
   INPUT_ADORNMENT_POSITION_START,
 } from "../../const/input";
-import { selectLoginErrorMesage } from "../../redux/selectors";
+import {
+  selectLoginErrorMesage,
+  selectMockUserCredentialsData,
+} from "../../redux/selectors";
 import { logInSchema } from "../../tools/validationSchemas";
 import {
   ErrorWrapper,
@@ -26,12 +28,54 @@ import {
   LoginFormWrapper,
   LoginPageWrapper,
 } from "./Login.style";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import KeyIcon from "@mui/icons-material/Key";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useDispatch } from "react-redux";
+import { setIsAuthAction, setNotificationAction } from "../../redux/slices";
+import { IconType } from "../../const/icons";
+import { NotificationsMessageType } from "../../const/common";
+import { localStorageHelper } from "../../tools/localStorageHelper";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const LoginPage: React.FunctionComponent = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const error = useSelector(selectLoginErrorMesage);
+  const mockUserData = useSelector(selectMockUserCredentialsData);
 
   const submitHandler = (values: any) => {
-    console.log("Hello world!");
+    if (
+      values.username !== mockUserData.username ||
+      values.password !== mockUserData.password
+    ) {
+      dispatch(
+        setNotificationAction({
+          message: `${t("loginUsernamePasswordInvalid")}`,
+          iconType: IconType.errorIcon,
+          messageType: NotificationsMessageType.error,
+        })
+      );
+      return;
+    }
+    localStorageHelper.set("isAuth", true);
+    dispatch(setIsAuthAction(true));
+    navigate("/profile");
+    dispatch(
+      setNotificationAction({
+        message: `${t("loginSignInSuccess")}`,
+        iconType: IconType.successIcon,
+        messageType: NotificationsMessageType.success,
+      })
+    );
+  };
+
+  const cancelButtonHandler = () => {
+    navigate("/");
   };
 
   const formik = useFormik({
@@ -61,7 +105,7 @@ export const LoginPage: React.FunctionComponent = () => {
             <InputUsernameTitle
               formikerror={formik.touched.username && formik.errors.username}
             >
-              Username
+              {t("loginUsernameInputTitle")}
             </InputUsernameTitle>
             <CommonInput
               type={InputType.text}
@@ -71,7 +115,7 @@ export const LoginPage: React.FunctionComponent = () => {
               onBlur={formik.handleBlur}
               startAdornment={
                 <InputAdornment position={INPUT_ADORNMENT_POSITION_START}>
-                  <CommonIcon type={IconType.userIcon} />
+                  <SvgIcon component={AccountCircleIcon} viewBox="0 0 25 25" />
                 </InputAdornment>
               }
               errorText={
@@ -86,7 +130,7 @@ export const LoginPage: React.FunctionComponent = () => {
             <InputPasswordTitle
               formikerror={formik.touched.password && formik.errors.password}
             >
-              Password
+              {t("loginPasswordInputTitle")}
             </InputPasswordTitle>
             <CommonInput
               placeholder="Enter password.."
@@ -98,7 +142,7 @@ export const LoginPage: React.FunctionComponent = () => {
               }
               startAdornment={
                 <InputAdornment position={INPUT_ADORNMENT_POSITION_START}>
-                  <CommonIcon type={IconType.userIcon} />
+                  <SvgIcon component={KeyIcon} viewBox="0 0 25 25" />
                 </InputAdornment>
               }
               adornment={
@@ -110,9 +154,12 @@ export const LoginPage: React.FunctionComponent = () => {
                     onClick={handleClickShowPassword}
                   >
                     {formik.values.showPass ? (
-                      <CommonIcon type={IconType.eyeOpenedIcon} />
+                      <SvgIcon component={VisibilityIcon} viewBox="0 0 25 25" />
                     ) : (
-                      <CommonIcon type={IconType.eyeClosedIcon} />
+                      <SvgIcon
+                        component={VisibilityOffIcon}
+                        viewBox="0 0 25 25"
+                      />
                     )}
                   </IconButton>
                 </InputAdornment>
@@ -125,22 +172,26 @@ export const LoginPage: React.FunctionComponent = () => {
               autoComplete="off"
             />
           </InputPasswordWrapper>
-          <LoginButtonsWrapper>
+          <LoginButtonsWrapper isdisabledsigninbutton={!formik.isValid}>
             <Button
-              title="Cancel"
               color={ButtonColorType.outlined}
               type={ButtonType.button}
               variant={ButtonVariantType.outlined}
               fullWidth
-            />
+              onClick={cancelButtonHandler}
+            >
+              {t("loginCancelButton")}
+            </Button>
             <Button
-              title="Sign in"
               color={ButtonColorType.contained}
               type={ButtonType.submit}
               variant={ButtonVariantType.contained}
               fullWidth
               disabled={!formik.isValid}
-            />
+              className="sign-in-button"
+            >
+              {t("loginSignInButton")}
+            </Button>
           </LoginButtonsWrapper>
         </form>
       </LoginFormWrapper>

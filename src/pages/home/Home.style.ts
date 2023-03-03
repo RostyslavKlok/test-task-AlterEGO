@@ -18,6 +18,8 @@ export const HomePageWrapper = styled(Grid)`
 export const HomePageInfoWrapper = styled(Grid)`
   width: 497px;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
   padding: 40px;
   margin-top: 120px;
   background-color: ${(props) => props.theme.colors.primary};

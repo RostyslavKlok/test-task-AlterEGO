@@ -21,3 +21,18 @@ export const newsPostItemHelper = (obj: any) => {
     gender,
   };
 };
+
+export const generateUniqueId = () => {
+  let chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+  let id = "";
+
+  for (let i = 0; i < 15; i++) {
+    let randomIndex = Math.floor(Math.random() * chars.length);
+    id += chars[randomIndex];
+    if (i === 4 || i === 9) {
+      id += "-";
+    }
+  }
+
+  return id;
+};
