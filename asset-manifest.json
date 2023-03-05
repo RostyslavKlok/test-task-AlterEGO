@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/test-task-AlterEGO/static/css/main.91ce69f5.css",
-    "main.js": "/test-task-AlterEGO/static/js/main.5196636f.js",
+    "main.js": "/test-task-AlterEGO/static/js/main.2f8f8469.js",
     "static/js/787.77fff4a5.chunk.js": "/test-task-AlterEGO/static/js/787.77fff4a5.chunk.js",
     "static/media/newsPageBackground.png": "/test-task-AlterEGO/static/media/newsPageBackground.412836361b80e2ab9515.png",
     "static/media/loginBackground2.png": "/test-task-AlterEGO/static/media/loginBackground2.51fb5f7c3924a2bc2b44.png",
@@ -47,11 +47,11 @@
     "static/media/montserrat-latin-100.woff2": "/test-task-AlterEGO/static/media/montserrat-latin-100.8d7d79679b70dbe27172.woff2",
     "index.html": "/test-task-AlterEGO/index.html",
     "main.91ce69f5.css.map": "/test-task-AlterEGO/static/css/main.91ce69f5.css.map",
-    "main.5196636f.js.map": "/test-task-AlterEGO/static/js/main.5196636f.js.map",
+    "main.2f8f8469.js.map": "/test-task-AlterEGO/static/js/main.2f8f8469.js.map",
     "787.77fff4a5.chunk.js.map": "/test-task-AlterEGO/static/js/787.77fff4a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.91ce69f5.css",
-    "static/js/main.5196636f.js"
+    "static/js/main.2f8f8469.js"
   ]
 }
