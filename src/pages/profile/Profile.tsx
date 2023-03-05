@@ -27,7 +27,7 @@ export const ProfilePage: React.FunctionComponent = () => {
   const signOutHandler = () => {
     localStorageHelper.set("isAuth", false);
     dispatch(setIsAuthAction(false));
-    navigate("/");
+    navigate("test-task-AlterEGO/");
     dispatch(
       setNotificationAction({
         message: `${t("profileLoggedOutSuccess")}`,

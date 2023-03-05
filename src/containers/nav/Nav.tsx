@@ -62,18 +62,22 @@ export const Nav: React.FunctionComponent<NavProps> = (props) => {
         </NavButtonsLangWrapper>
         <NavItemsWrapper>
           <NavItem>
-            <Link to={"/"}>{t("navHomeButton")}</Link>
+            <Link to={"test-task-AlterEGO/"}>{t("navHomeButton")}</Link>
           </NavItem>
           <NavItem>
-            <Link to={"/news"}>{t("navNewsButton")}</Link>
+            <Link to={"test-task-AlterEGO/news"}>{t("navNewsButton")}</Link>
           </NavItem>
           {isAuth ? (
             <NavItem>
-              <Link to={"/profile"}>{t("navProfileButton")}</Link>
+              <Link to={"test-task-AlterEGO/profile"}>
+                {t("navProfileButton")}
+              </Link>
             </NavItem>
           ) : (
             <NavItem>
-              <Link to={"/sign-in"}>{t("navSignInButton")}</Link>
+              <Link to={"test-task-AlterEGO/sign-in"}>
+                {t("navSignInButton")}
+              </Link>
             </NavItem>
           )}
         </NavItemsWrapper>
@@ -88,24 +92,36 @@ export const Nav: React.FunctionComponent<NavProps> = (props) => {
         {isOpenMobileMenu ? (
           <NavItemsWrapperMobile>
             <NavItemMobile>
-              <Link to={"/"} onClick={onClickMobileMenuHandler}>
+              <Link
+                to={"test-task-AlterEGO/"}
+                onClick={onClickMobileMenuHandler}
+              >
                 {t("navHomeButton")}
               </Link>
             </NavItemMobile>
             <NavItemMobile>
-              <Link to={"/news"} onClick={onClickMobileMenuHandler}>
+              <Link
+                to={"test-task-AlterEGO/news"}
+                onClick={onClickMobileMenuHandler}
+              >
                 {t("navNewsButton")}
               </Link>
             </NavItemMobile>
             {isAuth ? (
               <NavItemMobile>
-                <Link to={"/profile"} onClick={onClickMobileMenuHandler}>
+                <Link
+                  to={"test-task-AlterEGO/profile"}
+                  onClick={onClickMobileMenuHandler}
+                >
                   {t("navProfileButton")}
                 </Link>
               </NavItemMobile>
             ) : (
               <NavItemMobile>
-                <Link to={"/sign-in"} onClick={onClickMobileMenuHandler}>
+                <Link
+                  to={"test-task-AlterEGO/sign-in"}
+                  onClick={onClickMobileMenuHandler}
+                >
                   {t("navSignInButton")}
                 </Link>
               </NavItemMobile>
