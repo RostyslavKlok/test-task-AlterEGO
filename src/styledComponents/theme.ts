@@ -14,6 +14,9 @@ export const myTheme = {
     fz16: "16px",
     fz14: "14px",
     fz12: "12px",
+    fz10: "10px",
+    fz8: "8px",
+    fz6: "6px",
   },
   fontWeight: {
     fw200: "200",
@@ -26,6 +29,7 @@ export const myTheme = {
   componentSizes: {
     navHeight: "120px",
     modalWidthDesktop: "500px",
+    navHeightMobile: "80px",
   },
   borders: {
     borderRadius12: "12px",
@@ -33,6 +37,7 @@ export const myTheme = {
   lineHeights: {
     lh28: "28px",
     lh24: "24px",
+    lh20: "20px",
     lh17: "17px",
     lh15: "15px",
   },

@@ -1,5 +1,6 @@
 import { Box, Grid } from "@material-ui/core";
 import styled from "styled-components";
+import { device } from "../../../const/common";
 
 export const ModalBox = styled(Box)`
   position: absolute;
@@ -13,8 +14,16 @@ export const ModalBox = styled(Box)`
   box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.5);
   padding: 20px 15px 10px 15px;
 
+  @media ${device.tablet} {
+    width: 80%;
+  }
+
   #modal-title {
     text-align: center;
+
+    @media ${device.tablet} {
+      font-size: ${(props) => props.theme.fontSize.fz16};
+    }
   }
 `;
 
@@ -26,6 +35,14 @@ export const ModalButtonsWrapper = styled(Grid)`
 
   button {
     width: 48%;
+
+    @media ${device.tabletS} {
+      font-size: ${(props) => props.theme.fontSize.fz12};
+    }
+
+    @media ${device.mobileL} {
+      font-size: ${(props) => props.theme.fontSize.fz10};
+    }
   }
 
   .delete-news-post-button:hover {
