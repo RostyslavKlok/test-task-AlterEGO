@@ -5,6 +5,7 @@ import { HomePage, LoginPage, NewsPage, ProfilePage } from "./pages";
 const AppRoutes: React.FC = () => (
   <>
     <Routes>
+      <Route path="*" element={<HomePage />} />
       <Route path={"/"} element={<HomePage />} />
       <Route path={"/news"} element={<NewsPage />} />
       <Route path={"/profile"} element={<ProfilePage />} />
