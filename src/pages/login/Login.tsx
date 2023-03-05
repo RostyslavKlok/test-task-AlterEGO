@@ -64,7 +64,7 @@ export const LoginPage: React.FunctionComponent = () => {
     }
     localStorageHelper.set("isAuth", true);
     dispatch(setIsAuthAction(true));
-    navigate("test-task-AlterEGO//profile");
+    navigate("/profile");
     dispatch(
       setNotificationAction({
         message: `${t("loginSignInSuccess")}`,
@@ -75,7 +75,7 @@ export const LoginPage: React.FunctionComponent = () => {
   };
 
   const cancelButtonHandler = () => {
-    navigate("test-task-AlterEGO/");
+    navigate("/");
   };
 
   const formik = useFormik({

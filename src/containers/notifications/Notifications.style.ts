@@ -8,6 +8,10 @@ export const SnackbarWrapper = styled(Snackbar)`
   @media ${device.laptop} {
     width: 100%;
   }
+
+  @media ${device.tablet} {
+    width: 97vw !important;
+  }
 `;
 
 export const AlertWrapper = styled(Grid)`

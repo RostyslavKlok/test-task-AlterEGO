@@ -6,10 +6,10 @@ const AppRoutes: React.FC = () => (
   <>
     <Routes>
       <Route path="*" element={<HomePage />} />
-      <Route path={"test-task-AlterEGO/"} element={<HomePage />} />
-      <Route path={"test-task-AlterEGO/news"} element={<NewsPage />} />
-      <Route path={"test-task-AlterEGO/profile"} element={<ProfilePage />} />
-      <Route path={"test-task-AlterEGO/sign-in"} element={<LoginPage />} />
+      <Route path={"/"} element={<HomePage />} />
+      <Route path={"/news"} element={<NewsPage />} />
+      <Route path={"/profile"} element={<ProfilePage />} />
+      <Route path={"/sign-in"} element={<LoginPage />} />
     </Routes>
   </>
 );
